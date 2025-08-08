@@ -1,0 +1,23 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] entries = new int[20];
+        int[] winners = { 7, 13, 21, 42, 55 };
+        
+        for (int i = 0; i < 20; i++)
+        {
+            int num;
+            do
+            {
+                Console.Write($"User {i + 1} lucky number (1-99): ");
+            } while (!int.TryParse(Console.ReadLine(), out num) || num < 1 || num > 99);
+            
+            entries[i] = num;
+            if (Array.Exists(winners, w => w == num))
+                Console.WriteLine("Congratulations! You picked a winning number!");
+        }
+    }
+}
