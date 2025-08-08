@@ -1,0 +1,26 @@
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        string[] months = { "January", "February", "March", "April", "May", "June",
+                            "July", "August", "September", "October", "November", "December" };
+        float[] sales = new float[12];
+
+        for (int i = 0; i < 12; i++)
+        {
+            Console.Write($"Sales for {months[i]}: ");
+            sales[i] = float.Parse(Console.ReadLine());
+        }
+
+        int highIndex = Array.IndexOf(sales, sales.Max());
+        int lowIndex = Array.IndexOf(sales, sales.Min());
+        float average = sales.Average();
+
+        Console.WriteLine($"\nHighest: {months[highIndex]} → {sales[highIndex]}");
+        Console.WriteLine($"Lowest: {months[lowIndex]} → {sales[lowIndex]}");
+        Console.WriteLine($"Average: {average}");
+    }
+}
