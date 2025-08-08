@@ -1,0 +1,21 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] symptoms = new string[5];
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Patient {i + 1} symptom: ");
+            string s = Console.ReadLine().ToLower();
+
+            if (s.Contains("fever") || s.Contains("cough"))
+                Console.WriteLine("→ General Medicine");
+            else if (s.Contains("injury") || s.Contains("burn"))
+                Console.WriteLine("→ Emergency");
+            else
+                Console.WriteLine("→ Refer to Specialist");
+        }
+    }
+}
