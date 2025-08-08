@@ -1,0 +1,32 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double[] celsiusTemps = new double[5];
+
+        // Input Celsius temperatures
+        for (int i = 0; i < celsiusTemps.Length; i++)
+        {
+            Console.Write($"Enter temperature #{i + 1} in Celsius: ");
+            celsiusTemps[i] = double.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("\nResults:");
+        for (int i = 0; i < celsiusTemps.Length; i++)
+        {
+            double fahrenheit = celsiusTemps[i] * 9 / 5 + 32;
+
+            string category;
+            if (celsiusTemps[i] < 15)
+                category = "Cold";
+            else if (celsiusTemps[i] <= 30)
+                category = "Warm";
+            else
+                category = "Hot";
+
+            Console.WriteLine($"Celsius: {celsiusTemps[i]}°C → Fahrenheit: {fahrenheit:F1}°F → {category}");
+        }
+    }
+}
