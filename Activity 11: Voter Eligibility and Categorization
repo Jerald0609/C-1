@@ -1,0 +1,34 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] names = new string[10];
+        int[] ages = new int[10];
+
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Name #{i + 1}: ");
+            names[i] = Console.ReadLine();
+
+            do
+            {
+                Console.Write($"Age of {names[i]}: ");
+            } while (!int.TryParse(Console.ReadLine(), out ages[i]) || ages[i] < 0 || ages[i] > 120);
+        }
+
+        Console.WriteLine("\nResults:");
+        for (int i = 0; i < 10; i++)
+        {
+            if (ages[i] < 18)
+                Console.WriteLine($"{names[i]} ({ages[i]}) → Not eligible");
+            else if (ages[i] <= 30)
+                Console.WriteLine($"{names[i]} ({ages[i]}) → Young Voter");
+            else if (ages[i] <= 59)
+                Console.WriteLine($"{names[i]} ({ages[i]}) → Mid-age Voter");
+            else
+                Console.WriteLine($"{names[i]} ({ages[i]}) → Senior Voter");
+        }
+    }
+}
