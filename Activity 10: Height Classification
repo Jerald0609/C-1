@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double[] heights = new double[6];
+        int shortCount = 0, avgCount = 0, tallCount = 0;
+
+        // Input heights
+        for (int i = 0; i < heights.Length; i++)
+        {
+            Console.Write($"Enter height #{i + 1} in cm: ");
+            heights[i] = double.Parse(Console.ReadLine());
+
+            if (heights[i] < 150)
+                shortCount++;
+            else if (heights[i] <= 170)
+                avgCount++;
+            else
+                tallCount++;
+        }
+
+        // Output results
+        Console.WriteLine("\nHeight Classification:");
+        foreach (double h in heights)
+        {
+            string category = (h < 150) ? "Short" :
+                              (h <= 170) ? "Average" : "Tall";
+            Console.WriteLine($"{h} cm → {category}");
+        }
+
+        Console.WriteLine($"\nTotals:");
+        Console.WriteLine($"Short: {shortCount}");
+        Console.WriteLine($"Average: {avgCount}");
+        Console.WriteLine($"Tall: {tallCount}");
+    }
+}
