@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] emails = new string[5];
+
+        for (int i = 0; i < emails.Length; i++)
+        {
+            Console.Write($"Enter email #{i + 1}: ");
+            emails[i] = Console.ReadLine();
+
+            if (emails[i].Contains("@") &&
+               (emails[i].EndsWith(".com") || emails[i].EndsWith(".edu")))
+            {
+                string username = emails[i].Substring(0, emails[i].IndexOf("@"));
+                Console.WriteLine($"Valid → Username: {username}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid email format.");
+            }
+        }
+    }
+}
