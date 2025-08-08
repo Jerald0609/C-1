@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = new int[3];
+
+        // Input 3 numbers
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.Write($"Enter number #{i + 1}: ");
+            numbers[i] = int.Parse(Console.ReadLine());
+        }
+
+        // Display multiplication tables
+        foreach (int num in numbers)
+        {
+            Console.WriteLine($"\nMultiplication Table for {num}:");
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"{num} x {i} = {num * i}");
+            }
+        }
+    }
+}
