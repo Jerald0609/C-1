@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int alice = 0, bob = 0, charlie = 0;
+
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.Write($"Vote #{i} (Alice/Bob/Charlie): ");
+            switch (Console.ReadLine().Trim().ToLower())
+            {
+                case "alice": alice++; break;
+                case "bob": bob++; break;
+                case "charlie": charlie++; break;
+                default: Console.WriteLine("Invalid vote!"); break;
+            }
+        }
+
+        Console.WriteLine($"\nAlice: {alice}\nBob: {bob}\nCharlie: {charlie}");
+
+        string winner = (alice > bob && alice > charlie) ? "Alice" :
+                        (bob > alice && bob > charlie) ? "Bob" :
+                        (charlie > alice && charlie > bob) ? "Charlie" : "Tie";
+
+        Console.WriteLine($"Winner: {winner}");
+    }
+}
