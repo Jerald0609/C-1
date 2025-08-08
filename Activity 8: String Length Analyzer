@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] passwords = new string[4];
+
+        for (int i = 0; i < passwords.Length; i++)
+        {
+            Console.Write($"Enter password #{i + 1}: ");
+            passwords[i] = Console.ReadLine();
+
+            bool hasUpper = false;
+            foreach (char c in passwords[i])
+            {
+                if (char.IsUpper(c))
+                {
+                    hasUpper = true;
+                    break;
+                }
+            }
+
+            if (passwords[i].Length >= 6 && hasUpper)
+                Console.WriteLine("Valid");
+            else
+                Console.WriteLine("Invalid");
+        }
+    }
+}
