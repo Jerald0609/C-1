@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] nums = new int[8];
+
+        for (int i = 0; i < 8; i++)
+        {
+            Console.Write($"Enter whole number {i + 1}: ");
+            nums[i] = int.Parse(Console.ReadLine());
+
+            // Prime check
+            bool isPrime = nums[i] > 1;
+            for (int j = 2; j * j <= nums[i]; j++)
+                if (nums[i] % j == 0) { isPrime = false; break; }
+
+            // Output
+            Console.WriteLine(
+                $"{nums[i]} → Prime: {isPrime}, Binary: {Convert.ToString(nums[i], 2)}, " +
+                (nums[i] % 2 == 0 ? "Even" : "Odd")
+            );
+        }
+    }
+}
