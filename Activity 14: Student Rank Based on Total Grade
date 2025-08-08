@@ -1,0 +1,39 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] names = new string[5];
+        int[,] grades = new int[5, 3];
+        int[] totals = new int[5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Enter name of student #{i + 1}: ");
+            names[i] = Console.ReadLine();
+
+            for (int j = 0; j < 3; j++)
+            {
+                int grade;
+                do
+                {
+                    Console.Write($"Enter grade {j + 1} for {names[i]} (0–100): ");
+                } while (!int.TryParse(Console.ReadLine(), out grade) || grade < 0 || grade > 100);
+
+                grades[i, j] = grade;
+                totals[i] += grade;
+            }
+        }
+
+        // Ranking
+        int[] sortedIndex = { 0, 1, 2, 3, 4 };
+        Array.Sort(totals, sortedIndex);
+        Array.Reverse(totals);
+        Array.Reverse(sortedIndex);
+
+        Console.WriteLine("\nRank\tName\tTotal");
+        for (int rank = 0; rank < 5; rank++)
+            Console.WriteLine($"{rank + 1}\t{names[sortedIndex[rank]]}\t{totals[rank]}");
+    }
+}
